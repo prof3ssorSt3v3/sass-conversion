@@ -335,7 +335,7 @@ footer h4[lang=ru]{
 @media all and (min-width:901px) and (max-width: 1400px){
     header{
         width: 900px;
-        margin 0 auto 10px 10px;
+        margin: 0 auto 10px 10px;
     }
     header:before,
     header:after{
