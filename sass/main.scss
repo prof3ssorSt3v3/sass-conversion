@@ -1,1 +1,240 @@
-// main SASS file
+  // main SASS file
+  @import "partials/_variables.scss";
+  @import "partials/_mixins.scss";
+  * {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after {
+      box-sizing: inherit;
+    }
+    &:before {
+      box-sizing: inherit;
+    }
+  }
+  
+  html {
+    font-size: 16px;
+    font-family: #ff1, #ff2, #ff3, #ff4;
+    line-height: 1.6;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: #ff5, #ff6, #ff7, #ff8, #ff9;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  /***********************************************
+                SPECIAL
+***********************************************/
+  
+  .clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  /***********************************************
+                LAYOUT
+***********************************************/
+  
+  .bg-header {
+    background-color: #fff;
+    background-color: #C7F7FF;
+    color: #222;
+    border-bottom: 1rem solid #89C0C9;
+    border-top: 1rem solid #3a5E63;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      width: 30%;
+      height: 1rem;
+      background-color: #3a5E63;
+      left: 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      width: 30%;
+      height: 1rem;
+      background-color: #3a5E63;
+      right: 0;
+    }
+  }
+  
+  header {
+    width: 400px;
+    /* default */
+    margin: 0 auto;
+    position: relative;
+    h1 {
+      width: 100%;
+      padding: 0 2rem;
+      color: #7C593C;
+      letter-spacing: 0.1rem;
+      i.fa-lg {
+        display: block;
+        width: 25%;
+        float: left;
+        font-size: 7rem;
+        line-height: 12.7936rem;
+        color: #C9A689;
+      }
+      i.fa-lg ~ span {
+        float: right;
+        width: 75%;
+        font-size: 3.998rem;
+        /**
+            2 lines of 3.998 * 1.6 = 12.7936
+            **/
+        padding-left: 1rem;
+        text-align: right;
+      }
+    }
+    nav {
+      width: 100%;
+      padding: 2rem 0;
+      clear: both;
+      ul {
+        >li {
+          >a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #222;
+            font-size: 1.414rem;
+            letter-spacing: 0.25rem;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            padding: 1.0rem 2rem;
+            line-height: 1;
+            background-color: #fff;
+            &:a:hover {
+              font-weight: 700;
+              color: #7C593C;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .bg-focal {
+    background-color: $lightbrown;
+    color: $darkbrown;
+    .focal {
+      width: 400px;
+      /* default */
+      margin: 0 auto;
+      h2 {
+        font-size: 1.999rem;
+        line-height: 1.2;
+        padding: 2rem 2rem 1rem 2rem;
+      }
+      .author {
+        ont-size: 1rem;
+        padding: 0.2rem 2rem 2rem;
+      }
+    }
+  }
+  
+  .bg-content1 {
+    background-color: $white;
+    color: $darkgrey;
+  }
+  
+  .content1 {
+    padding: 2rem 0;
+  }
+  
+  h3 {
+    font-size: 1.999rem;
+    padding: 0.2rem 2rem 2rem;
+    i {
+      vertical-align: middle;
+      padding-right: 2rem;
+    }
+  }
+  
+  p {
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 2rem;
+  }
+  
+  .bg-content2 {
+    background-color: $lightblue;
+    color: $darkblue;
+    .content2 {
+      padding: 2rem 0;
+      h3 {
+        font-size: 1.999rem;
+        padding: 1rem 2rem 0.5rem;
+      }
+      h4 {
+        font-size: 1.999rem;
+        padding: 1rem 2rem 0rem;
+      }
+      .content2 p {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem 1rem;
+      }
+      .content2 li {
+        padding: 0.5rem 2rem;
+        font-size: 1.414rem;
+      }
+    }
+  }
+  
+  .bg-footer {
+    background-color: $white;
+    color: $darkgrey;
+    footer {
+      padding: 2rem 0;
+      .col-2:first-child {
+        border-left: 0;
+      }
+      p:last-child {}
+      h4 {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem;
+        color: $darkbrown;
+        [lang=de] {
+          display: block;
+        }
+        [lang=en],
+        [lang=ar],
+        [lang=ru] {
+          display: none;
+        }
+        p {
+          font-size: 1rem;
+          padding: 0.5rem 2rem;
+          color: $white;
+        }
+        .fa-circle {
+          color: $darkgrey;
+        }
+      }
+    }
+  }
+  
+  .row {
+    clear: both;
+    .col-2 {
+      width: 50%;
+      float: left;
+      padding-bottom: 2rem;
+      border-left: 1px solid #3a5E63;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @import "partials/_queries.scss";
