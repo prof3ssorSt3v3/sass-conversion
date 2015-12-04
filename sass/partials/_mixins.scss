@@ -1,0 +1,25 @@
+@mixin tablet-view {
+    @media all and (min-width: 600px) and (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin desktop-view {
+    @media all and (min-width: 901px) and (max-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin max-view {
+    @media all and (min-width: 1401px) {
+        @content;
+    }
+}
+
+@mixin esp($n, $w, $s) {
+    width: ($w - $s*($n - 1)) / $n;
+    margin-left: $s;
+    &:first-child {
+        margin-left: 0;
+    }
+}
