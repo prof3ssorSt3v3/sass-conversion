@@ -24,11 +24,11 @@ dark grey   #222
 }
 html{
     font-size: 16px;
-    font-family: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif; /* default for whole page */
+    font-family: 'Josefin Sans', 'Trebuchet MS', Helvetica, sans-serif; /* default for whole page */
     line-height: 1.6;
 }
 h1, h2, h3, h4{
-    font-family: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; /* serif for the headings */
+    font-family: Cardo, 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* serif for the headings */
 }
 ul{
     list-style: none;
