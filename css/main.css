@@ -1,10 +1,12 @@
 /***********************************************
-                NOTES
+                COLOUR NOTES
 light blue  #C7F7FF
 med blue    #89C0C9
 dark blue   #3a5E63
+
 light brown #C9A689
 dark brown  #7C593C
+
 light grey  #d4d4d4
 dark grey   #222
 
@@ -37,11 +39,7 @@ ul{
                 SPECIAL
 ***********************************************/
 
-.clearfix:after{
-    display:table;
-    clear: both;
-    content: "";
-}
+
 
 /***********************************************
                 LAYOUT
@@ -59,8 +57,8 @@ ul{
     content:"";
     position:absolute;
     bottom:-1rem;
-    width:30%;
     height:1rem;
+    width:30%;
     background-color: #3a5E63;
 }
 .bg-header:before{
@@ -86,7 +84,7 @@ ul{
     color: #d4d4d4;
 }
 header{
-    width: 400px; /* default */
+    width: 400px; /* default min screen width */
     margin: 0 auto;
     position: relative;
 }
@@ -96,11 +94,19 @@ header h1{
 }
 header nav{
     width: 100%;
+    display: flex;
+    flex-direction: column; /* mobile first */
+    justify-content: flex-start;
+    align-items: stretch;
+    padding:2rem 0;
 }
-header nav>ul li{
-    width:100%;
-    float: none;
+header nav > a{
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-align: center;
 }
+
 section.focal{
     width: 400px; /* default */
     margin: 0 auto;
@@ -112,8 +118,37 @@ section.content2{
     padding:2rem 0;    
 }
 .row{
-    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:stretch;
 }
+.row .col{
+    flex-basis: 100%; /* mobile default */
+}
+
+footer .row{
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+footer .row > *{
+    flex-basis: 50%;
+    padding-bottom: 2rem;
+    border-left:1px solid #3a5E63;
+    margin-bottom: 2rem;
+}
+footer .row.last-row > *{
+    flex-basis: 100%;
+}
+footer .row .col:first-child{
+    border-left: 0;
+}
+footer{
+    padding:2rem 0;
+}
+/*
 .col-2{
     width:50%;
     float:left;
@@ -129,15 +164,14 @@ footer{
 }
 footer p:last-child{
 }
+*/
 /***********************************************
                 NAVIGATION
 ***********************************************/
 header nav{
-    padding:2rem 0;
-    clear: both;
+    
 }
-header nav>ul>li>a{
-    display:block;
+header nav > a{
     text-align: center;
     text-decoration: none;
     color: #222;    
@@ -149,7 +183,7 @@ header nav>ul>li>a{
     line-height: 1;
     background-color: #fff;
 }
-header nav>ul>li>a:hover{
+header nav > a:hover{
     font-weight: 700;
     color:#7C593C;
 }
@@ -179,6 +213,7 @@ header h1 i.fa-lg ~ span{
     padding-left: 1rem;
     text-align: right;
 }
+
 .focal h2{
     font-size: 1.999rem;
     line-height: 1.2;
@@ -188,6 +223,7 @@ header h1 i.fa-lg ~ span{
     font-size: 1rem;
     padding: 0.2rem 2rem 2rem;
 }
+
 .content1 h3{
     font-size:1.999rem;
     padding: 0.2rem 2rem 2rem;
@@ -200,6 +236,7 @@ header h1 i.fa-lg ~ span{
     font-size: 1.414rem;
     padding: 0.5rem 2rem 2rem;
 }
+
 .content2 h3{
     font-size: 1.999rem;
     padding: 1rem 2rem 0.5rem;
@@ -215,6 +252,48 @@ header h1 i.fa-lg ~ span{
 .content2 li{
     padding: 0.5rem 2rem;
     font-size: 1.414rem;
+}
+
+.content2 span[lang]{
+    position: relative;
+}
+.content2 span:hover:after{
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    content: attr(data-country);
+    display: block;
+    padding: 0.2rem 1rem 0.2rem 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    height: 2rem;
+    width: auto;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.8);
+    background-image: url(../img/uk-icon.png);
+    background-repeat: no-repeat;
+    background-size: 1.5rem auto;
+    background-position: left center;
+}
+.content2 h4 span[lang="sv"]:after{
+    background-image: url(../img/sv-icon.png);
+}
+.content2 h4 span[lang="pt"]:after{
+    background-image: url(../img/pt-icon.png);
+}
+.content2 h4 span[lang="fr"]:after{
+    background-image: url(../img/fr-icon.png);
+}
+.content2 h4 span[lang="no"]:after{
+    background-image: url(../img/no-icon.png);
+}
+.content2 h4 span[lang="hi"]:after{
+    background-image: url(../img/hi-icon.png);
+}
+.content2 h4 span[lang="es"]:after{
+    background-image: url(../img/es-icon.png);
 }
 /***********************************************
                 FOOTER
@@ -276,17 +355,35 @@ footer h4[lang=ru]{
         **/
         text-align: left;
     }
+    
     header nav{
+/*        width: 100%;*/
+/*        display: flex;*/
+        flex-direction: row; /* mobile first */
+        justify-content: space-around;
+        align-items: center;
+/*        padding:2rem 0;*/
+/*
         position: static;
         clear:both;
         width: 100%;
         padding: 0;
+*/
     }
-    header nav>ul>li{
+    header nav > a{
+/*
         width:20%;
         float: left;
+*/
+        flex-basis: 20%;
+/*
+        flex-basis: 100%;
+        flex-grow: 1;
+        flex-shrink: 0;
+        text-align: center;
+*/
     }
-    header nav>ul>li>a{
+    header nav > a{
         font-size: 1rem;
         line-height: 2rem;
         min-height: 6rem;
@@ -295,7 +392,7 @@ footer h4[lang=ru]{
         padding:1.0rem;
         background-color: #fff;
     }
-    header nav>ul>li>a:last-child{
+    header nav > a:last-child{
         border-right:1px solid #d4d4d4;
     }
     section.focal, 
@@ -305,9 +402,29 @@ footer h4[lang=ru]{
         width: 700px; 
         margin: 0 auto;    
     }
-    .col-4{
-        width:50%;
-        float:left;
+    .content1 .row{
+        /* same as mobile default */
+    }
+    .content2 .row{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .content2 .row .col{
+        flex-basis: 50%;
+    }
+    footer .row{
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    footer .row > *{
+        flex-basis: 50%;
+    }
+    footer .row.last-row > *{
+        flex-basis: 100%;
     }
     section.content2 h4{
         font-size: 1.414rem;
@@ -318,7 +435,7 @@ footer h4[lang=ru]{
     footer .fa-circle{
         color: #89C0C9;
     }
-    footer .col-2:last-child{
+    footer .row:first-child .col:last-child{
         unicode-bidi: bidi-override;
         direction: rtl;
     }
@@ -364,18 +481,28 @@ footer h4[lang=ru]{
         **/
         text-align: left;
     }
+    
     header nav{
+        flex-direction: row; /* mobile first */
+        justify-content: space-around;
+        align-items: center;
+/*
         position: static;
         clear:both;
         width: 100%;
         padding: 0;
+*/
     }
     header nav>ul>li{
+/*
         width:20%;
         float: left;
         background-color: #fff;
+*/
     }
-    header nav>ul>li>a{
+    header nav > a{
+        flex-basis: 20%;
+        
         font-size: 1rem;
         line-height: 2rem;
         min-height: 2rem;
@@ -385,7 +512,7 @@ footer h4[lang=ru]{
         margin: 1.0rem 0;
         background-color: #fff;
     }
-    header nav>ul>li:first-child a{
+    header nav > a:first-child{
         border-left:none;
     }
     section.focal, 
@@ -403,21 +530,48 @@ footer h4[lang=ru]{
         width: 600px; 
         margin: 0 auto;
     }
-    .col-3{
+    .content1 .row,
+    .content2 .row,
+    footer .row{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .content1 .row .col{
+        flex-basis: 33%;
+        flex-grow: 1;
+        flex-shrink: 0;
+/*
         float:left;
         width: 30%;
         margin-left: 5%;
+*/
     }
-    .col-3:first-child{
-        margin-left: 0;
+    .content1 .row .col:first-child{
+/*        margin-left: 0;*/
     }
-    .col-4{
+    .content2 .row .col{
+        flex-basis: 25%;
+        flex-grow: 1;
+        flex-shrink: 0;
+/*
         width:22%;
         margin-left: 4%;
         float:left;
+*/
     }
-    .col-4:first-child{
-        margin-left: 0;
+    .content1 .row .col:first-child{
+/*        margin-left: 0;*/
+    }
+    footer .row .col{
+        flex-basis: 50%;
+    }
+    footer .row.last-row{
+        justify-content: flex-start;
+    }
+    footer .row.last-row .col{
+        flex-basis: 100%;
     }
     section.content1 h3{
         font-size: 1.999rem;
@@ -482,28 +636,39 @@ footer h4[lang=ru]{
         **/
         text-align: left;
     }
+    
     header nav{
+        flex-direction: row; /* mobile first */
+        justify-content: space-around;
+        align-items: center;
+/*
         position: static;
         clear:both;
+*/
         width: 100%;
-        padding: 0;
-    }
-    header nav>ul>li{
-        width:20%;
-        float: left;
+        padding: 0rem 0;
         background-color: #fff;
     }
-    header nav>ul>li>a{
+    header nav > a{
+/*
+        width:20%;
+        float: left;
+*/
+/*        background-color: #fff;*/
+    }
+    header nav > a{
+        flex-basis: 20%;
+        
         font-size: 1.414rem;
         line-height: 2rem;
         min-height: 2rem;
         border:none;
         border-left:1px solid #d4d4d4; 
         padding:0 1.0rem;
-        margin:1.0rem 0;
+        margin: 1rem 0;
         background-color: #fff;
     }
-    header nav>ul>li:first-child a{
+    header nav > a:first-child{
         border-left:none;
     }
     section.focal, 
@@ -513,6 +678,35 @@ footer h4[lang=ru]{
         width: 1400px; 
         margin: 0 auto;    
     }
+    .content1 .row,
+    .content2 .row,
+    footer .row{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .content1 .row .col{
+        flex-basis: 30%;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .content2 .row .col{
+        flex-basis: 20%;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    footer .row .col{
+        flex-basis: 50%;
+    }
+    footer .row.last-row{
+        justify-content: flex-start;
+    }
+    footer .row.last-row .col{
+        flex-basis: 100%;
+    }
+    
+    
     section.focal h2{
         font-size: 3.998rem;
         width: 600px; 
@@ -523,20 +717,24 @@ footer h4[lang=ru]{
         margin: 0 auto;
     }
     .col-3{
+/*
         float:left;
         width: 30%;
         margin-left: 5%;
+*/
     }
     .col-3:first-child{
-        margin-left: 0;
+/*        margin-left: 0;*/
     }
     .col-4{
+/*
         width:22%;
         margin-left: 4%;
         float:left;
+*/
     }
     .col-4:first-child{
-        margin-left: 0;
+/*        margin-left: 0;*/
     }
     section.content1 h3{
         font-size: 2.827rem;
